@@ -1,0 +1,53 @@
+<html>
+<head>
+  <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+  <link href="https://fonts.googleapis.com/css?family=Acme|K2D" rel="stylesheet">
+  <link rel='icon' href="{{url_for('static', filename='logo.png')}}">
+</head>
+<body>
+  <div class="sticky">
+    <h1>Smart Agriculture Web Portal</h1>
+  </div>
+  <div class="nav">
+    <p><a href="/">Main Home</a> ><a href="/fselling">Farmer Selling Home</a> >  <a href="/sell">Sell</a> > <a href="/viewproduct/">View Product</a> > <a href="/viewproduct/{{prodID}}">{{name}}</a> > <a href="">Edit</a></p>
+  </div>
+  <h2>Edit Product</h2>
+  <form action="" method="POST">
+    <table>
+      <tr>
+        <td>NAME :</td><td><input type="text" name="name" value="{{name}}" required></td>
+      </tr>
+      <tr>
+        <td>QUANTITY :</td><td><input type="number" name="qty" value="{{qty}}" min="0" required></td>
+      </tr>
+      <tr>
+        <td>CATEGORY :</td>
+        <td><select name="category" required>
+		<option value="Animals" {% if category=="Animals" %}selected{% endif %}>Animals</option>
+		<option value="Fresh Meat" {% if category=="Fresh Meat" %}selected{% endif %}>Fresh Meat</option>
+		<option value="Fresh Chicken" {% if category=="Fresh Chicken" %}selected{% endif %}>Fresh Chicken</option>
+          <option value="Pulses" {% if category=="Pulses" %}selected{% endif %}>Pulses</option>
+          <option value="Seeds" {% if category=="Seeds" %}selected{% endif %}>Seeds</option>
+          <option value="Fruits" {% if category=="Fruits" %}selected{% endif %}>Fruits</option>
+          <option value="Vegetables" {% if category=="Vegetables" %}selected{% endif %}>Vegetables</option>
+          <option value="Food and Groceries" {% if category=="Food and Groceries" %}selected{% endif %}>Food and Groceries</option>
+          <option value="Ghee" {% if category=="Ghee" %}selected{% endif %}>Ghee</option>
+          <option value="Honey" {% if category=="Honey" %}selected{% endif %}>Honey</option>
+          <option value="Greens" {% if category=="Greens" %}selected{% endif %}>Greens</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td>PRICE :</td><td><input type="number" name="price" value="{{price}}" min="0" required></td>
+      </tr>
+      <tr>
+        <td>DESCRIPTION :</td><td><textarea name="desp">{{desp}}</textarea></td>
+      </tr>
+	  <tr>
+              <td>Image of product</td><td><pre><img class="mr-3 img-fluid rounded mx-auto d-block" src="{{url_for('static',filename='uploads/'+image)}}""
+                 alt="Generic placeholder image" height="250" width="250"></pre></td>
+            </tr>
+    </table>
+    <input type="submit" value="Apply Changes" style="display:block; margin-left:auto; margin-right:auto; margin-top:1vw;">
+  </form>
+</body>
+</html>

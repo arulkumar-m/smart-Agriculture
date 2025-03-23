@@ -1,0 +1,54 @@
+<html>
+<head>
+  <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+  <link href="https://fonts.googleapis.com/css?family=Acme|K2D" rel="stylesheet">
+  <link rel='icon' href="{{url_for('static', filename='logo.png')}}">
+</head>
+<body>
+  <div class="sticky">
+    <h1>Smart Agriculture Web Portal</h1>
+  </div>
+  <div class="nav">
+    <p><a href="/">Main Home</a> ><a href="/fselling">Farmer Selling Home</a> >  <a href="/sell/">Sell</a> > <a href="">Add New Products</a></p>
+  </div>
+  <h2>Add Product:</h2>
+  <form action="" method="POST" enctype="multipart/form-data">>
+    <table>
+      <tr>
+        <td>NAME: </td><td><input type="text" name="name" required></td>
+      </tr>
+      <tr>
+        <td>QUANTITY: </td><td><input type="number" name="qty" min="0" required></td>
+      </tr>
+      <tr>
+        <td>CATEGORY: </td>
+        <td><select name="category" required>
+          <option value="" disabled selected>SELECT CATEGORY</option>
+		  <option value="Animals">Animals</option>
+          <option value="Fresh Meat">Fresh Meat</option>
+		  <option value="Fresh Chicken">Fresh Chicken</option>
+          <option value="Pulses">Pulses</option>
+          <option value="Seeds">Seeds</option>
+          <option value="Fruits">Fruits</option>
+          <option value="Vegetables">Vegetables</option>
+          <option value="Food and Groceries">Food and Groceries</option>
+          <option value="Ghee">Ghee</option>
+          <option value="Honey">Honey</option>
+          <option value="Greens">Greens</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td>PRICE(in ₹): </td><td><input type="number" name="price" min="0" required></td>
+      </tr>
+      <tr>
+        <td>DESCRIPTION: </td><td><textarea name="desp"></textarea></td>
+      </tr>
+	  <tr>
+    <td><label for="image">Choose file to upload</label></td>
+   <td> <input type="file" id="image" name="image" multiple /></td>
+  </tr>
+    </table>
+    <input type="submit" value="Add Product" style="display:block; margin-left:auto; margin-right:auto; margin-top:1vw;">
+  </form>
+</body>
+</html>
